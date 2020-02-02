@@ -1,8 +1,13 @@
 package weiyu.springframework.recipe.donmain;
 
-import javax.annotation.Generated;
+//import lombok.*;
+
+
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
+
 @Entity
 public class Category {
     @Id
@@ -10,7 +15,7 @@ public class Category {
     private Long id;
     private String description;
     @ManyToMany(mappedBy = "categories")
-    private Set<Recipe> recipes;
+    private Set<Recipe> recipes = new HashSet<>();
 
     public Long getId() {
         return id;

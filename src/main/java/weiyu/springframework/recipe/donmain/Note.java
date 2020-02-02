@@ -1,7 +1,12 @@
 package weiyu.springframework.recipe.donmain;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+
+@Data
+@EqualsAndHashCode (exclude = {"recipe"})
 @Entity
 public class Note {
     @Id
@@ -15,27 +20,8 @@ public class Note {
     public Note() {
     }
 
-    public Long getId() {
-        return id;
+    protected boolean canEqual(final Object other) {
+        return other instanceof Note;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public String getRecipeNote() {
-        return recipeNote;
-    }
-
-    public void setRecipeNote(String recipeNote) {
-        this.recipeNote = recipeNote;
-    }
 }
